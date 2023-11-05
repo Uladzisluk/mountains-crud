@@ -33,21 +33,15 @@ public class DataStore {
                 .collect(Collectors.toList());
     }
 
-    public synchronized void createPeak(Peak value) throws IllegalArgumentException {
-        if (peaks.stream().anyMatch(peak -> peak.getId().equals(value.getId()))) {
-            throw new IllegalArgumentException("The peak id \"%s\" is not unique".formatted(value.getId()));
+    public synchronized void savePeak(Peak value) throws IllegalArgumentException {
+        if (value.getRange() != null) {
+            ranges.stream()
+                    .filter(range -> range.getId().equals(value.getRange().getId()))
+                    .findFirst()
+                    .orElseThrow(() -> new IllegalArgumentException("No range with id \"%s\".".formatted(value.getRange().getId())));
         }
-        Peak entity = cloneWithRelationships(value);
-        peaks.add(entity);
-    }
-
-    public synchronized void updatePeak(Peak value) throws IllegalArgumentException {
-        Peak entity = cloneWithRelationships(value);
-        if (peaks.removeIf(peak -> peak.getId().equals(value.getId()))) {
-            peaks.add(entity);
-        } else {
-            throw new IllegalArgumentException("The peak with id \"%s\" does not exist".formatted(value.getId()));
-        }
+        peaks.removeIf(peak -> peak.getId().equals(value.getId()));
+        peaks.add(value);
     }
 
     public synchronized void deletePeak(UUID id) throws IllegalArgumentException {
@@ -62,31 +56,8 @@ public class DataStore {
                 .collect(Collectors.toList());
     }
 
-    public synchronized void createRange(Range value) throws IllegalArgumentException {
-        if (ranges.stream().anyMatch(range -> range.getId().equals(value.getId()))) {
-            throw new IllegalArgumentException("The range id \"%s\" is not unique".formatted(value.getId()));
-        }
+    public synchronized void saveRange(Range value) {
+        ranges.removeIf(range -> range.getId().equals(value.getId()));
         ranges.add(cloningUtility.clone(value));
-    }
-
-    public synchronized void updateRange(Range value) throws IllegalArgumentException {
-        if (ranges.removeIf(range -> range.getId().equals(value.getId()))) {
-            ranges.add(cloningUtility.clone(value));
-        } else {
-            throw new IllegalArgumentException("The range with id \"%s\" does not exist".formatted(value.getId()));
-        }
-    }
-
-    private Peak cloneWithRelationships(Peak value) {
-        Peak entity = cloningUtility.clone(value);
-
-        if (entity.getRange() != null) {
-            entity.setRange(ranges.stream()
-                    .filter(range -> range.getId().equals(value.getRange().getId()))
-                    .findFirst()
-                    .orElseThrow(() -> new IllegalArgumentException("No range with id \"%s\".".formatted(value.getRange().getId()))));
-        }
-
-        return entity;
     }
 }
