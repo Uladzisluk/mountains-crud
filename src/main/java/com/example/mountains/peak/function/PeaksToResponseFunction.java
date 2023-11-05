@@ -2,10 +2,12 @@ package com.example.mountains.peak.function;
 
 import com.example.mountains.peak.dto.GetPeaksResponse;
 import com.example.mountains.peak.entity.Peak;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.function.Function;
 
+@Component
 public class PeaksToResponseFunction implements Function<List<Peak>, GetPeaksResponse> {
     @Override
     public GetPeaksResponse apply(List<Peak> peaks){
