@@ -35,10 +35,11 @@ public class DataStore {
 
     public synchronized void savePeak(Peak value) throws IllegalArgumentException {
         if (value.getRange() != null) {
-            ranges.stream()
-                    .filter(range -> range.getId().equals(value.getRange().getId()))
+            Range range = ranges.stream()
+                    .filter(range1 -> range1.getId().equals(value.getRange().getId()))
                     .findFirst()
                     .orElseThrow(() -> new IllegalArgumentException("No range with id \"%s\".".formatted(value.getRange().getId())));
+            range.getPeaks().add(value);
         }
         peaks.removeIf(peak -> peak.getId().equals(value.getId()));
         peaks.add(value);
