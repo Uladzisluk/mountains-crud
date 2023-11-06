@@ -11,6 +11,10 @@ public interface PeakController {
 
     GetPeaksResponse getPeaks();
     GetPeakResponse getPeak(UUID id);
+    GetPeaksResponse getRangePeaks(UUID rangeId);
+    GetPeakResponse getRangePeak(UUID rangeId, UUID peakId);
+
     void putPeak(UUID id, PutPeakRequest request);
+    void putRangePeak(UUID rangeId, UUID peakId, PutPeakRequest request);
     void deletePeak(UUID id);
 }

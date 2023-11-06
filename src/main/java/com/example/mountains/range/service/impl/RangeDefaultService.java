@@ -6,6 +6,7 @@ import com.example.mountains.range.service.api.RangeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -26,6 +27,11 @@ public class RangeDefaultService implements RangeService {
     @Override
     public Optional<Range> find(String name) {
         return repository.findByName(name);
+    }
+
+    @Override
+    public List<Range> findAll(){
+        return repository.findAll();
     }
 
     @Override

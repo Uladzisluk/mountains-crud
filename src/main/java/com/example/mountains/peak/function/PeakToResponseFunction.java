@@ -14,7 +14,7 @@ public class PeakToResponseFunction implements Function<Peak, GetPeakResponse> {
                 .id(peak.getId())
                 .name(peak.getName())
                 .height(peak.getHeight())
-                .range(peak.getRange().getName())
+                .range(peak.getRange() == null ? "" : peak.getRange().getName())
                 .build();
     }
 }

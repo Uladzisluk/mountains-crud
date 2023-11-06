@@ -12,7 +12,10 @@ public interface PeakService {
     Optional<Peak> find(UUID id, Range range);
     List<Peak> findAll();
     List<Peak> findAll(Range range);
+    Optional<List<Peak>> findAllByRange(UUID rangeId);
+    Optional<Peak> findByRange(UUID rangeId, UUID peakId);
     void create(Peak peak);
+    void createInRange(UUID rangeId, Peak peak);
     void update(Peak peak);
     public void delete(UUID id);
 }
