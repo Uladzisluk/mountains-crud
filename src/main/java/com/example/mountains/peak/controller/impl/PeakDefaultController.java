@@ -46,8 +46,8 @@ public class PeakDefaultController implements PeakController {
     }
 
     @Override
-    public void putPeak(UUID id, Range range, PutPeakRequest request) {
-        service.create(requestToPeak.apply(id, range, request));
+    public void putPeak(UUID id, PutPeakRequest request) {
+        service.create(requestToPeak.apply(id, request));
     }
 
     @Override
