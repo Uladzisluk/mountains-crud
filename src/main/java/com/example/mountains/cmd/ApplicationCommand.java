@@ -30,9 +30,9 @@ public class ApplicationCommand implements CommandLineRunner {
         while(true){
             command = scanner.next();
             switch (command){
-                case "get_all" ->
+                case "get_peaks" ->
                     System.out.println(writer.writeValueAsString(peakController.getPeaks()));
-                case "get" -> {
+                case "get_peak" -> {
                     UUID uuid = UUID.fromString(scanner.next());
                     try{
                         System.out.println(writer.writeValueAsString(peakController.getPeak(uuid)));
@@ -40,7 +40,7 @@ public class ApplicationCommand implements CommandLineRunner {
                         System.out.println("NOT_FOUND");
                     }
                 }
-                case "delete" -> {
+                case "delete_peak" -> {
                     try{
                         UUID uuid = UUID.fromString(scanner.next());
                         peakController.deletePeak(uuid);
@@ -48,7 +48,7 @@ public class ApplicationCommand implements CommandLineRunner {
                         System.out.println("NOT_FOUND");
                     }
                 }
-                case "put" -> {
+                case "put_peak" -> {
                     UUID uuid = UUID.fromString(scanner.next());
                     PutPeakRequest request = PutPeakRequest.builder()
                             .name(scanner.next())
