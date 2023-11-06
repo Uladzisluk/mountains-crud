@@ -2,7 +2,6 @@ package com.example.mountains.range.service.impl;
 
 import com.example.mountains.range.entity.Range;
 import com.example.mountains.range.repository.api.RangeRepository;
-import com.example.mountains.range.repository.memory.RangeInMemoryRepository;
 import com.example.mountains.range.service.api.RangeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

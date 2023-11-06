@@ -1,11 +1,17 @@
 package com.example.mountains.peak.entity;
 
 import com.example.mountains.range.entity.Range;
+import jakarta.persistence.Table;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import jakarta.persistence.Basic;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
 import java.io.Serializable;
 
 import java.util.UUID;
@@ -15,13 +21,14 @@ import java.util.UUID;
 @Data
 @Builder
 @Entity
+@Table(name = "peaks")
 public class Peak implements Comparable<Peak>, Serializable {
     @Id
     private UUID id;
     String name;
     double height;
     @ManyToOne
-    @EqualsAndHashCode.Exclude
+    @JoinColumn(name = "range_name")
     Range range;
 
     @Override

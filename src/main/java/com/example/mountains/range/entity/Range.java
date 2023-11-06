@@ -1,11 +1,15 @@
 package com.example.mountains.range.entity;
 
 import com.example.mountains.peak.entity.Peak;
+import jakarta.persistence.Table;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
@@ -15,12 +19,15 @@ import java.util.UUID;
 @Data
 @Builder
 @Entity
+@Table(name = "ranges")
 public class Range implements Comparable<Range>, Serializable {
     @Id
     private UUID id;
     String name;
     int length;
     @OneToMany(mappedBy = "range")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     List<Peak> peaks;
 
     @Override
