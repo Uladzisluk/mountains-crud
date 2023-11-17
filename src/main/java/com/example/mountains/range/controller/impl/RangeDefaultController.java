@@ -64,4 +64,15 @@ public class RangeDefaultController implements RangeController {
     public void putRange(UUID id, PutRangeRequest request) {
         service.create(requestToRange.apply(id, request));
     }
+
+    @Override
+    public void deleteRange(UUID id) {
+        service.find(id)
+                .ifPresentOrElse(
+                        range -> service.delete(id),
+                        () -> {
+                            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+                        }
+                );
+    }
 }

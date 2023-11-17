@@ -28,4 +28,11 @@ public interface RangeController {
     @PutMapping("/api/ranges/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     void putRange(@PathVariable("id") UUID id, @RequestBody PutRangeRequest request);
+
+    @DeleteMapping("/api/ranges/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    void deleteRange(
+            @PathVariable("id")
+            UUID id
+    );
 }
