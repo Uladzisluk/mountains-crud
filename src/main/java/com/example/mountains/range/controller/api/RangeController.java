@@ -20,11 +20,6 @@ public interface RangeController {
     @ResponseBody
     GetRangeResponse getRange(@PathVariable("id") UUID id);
 
-    @GetMapping("/api/ranges/{name}")
-    @ResponseStatus(HttpStatus.OK)
-    @ResponseBody
-    GetRangeResponse getRange(@PathVariable("name") String name);
-
     @PutMapping("/api/ranges/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     void putRange(@PathVariable("id") UUID id, @RequestBody PutRangeRequest request);

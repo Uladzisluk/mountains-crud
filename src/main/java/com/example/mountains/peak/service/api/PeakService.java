@@ -9,6 +9,7 @@ import java.util.UUID;
 
 public interface PeakService {
     Optional<Peak> find(UUID id);
+    Optional<Range> findRange(UUID rangeId);
     Optional<Peak> find(UUID id, Range range);
     List<Peak> findAll();
     List<Peak> findAll(Range range);

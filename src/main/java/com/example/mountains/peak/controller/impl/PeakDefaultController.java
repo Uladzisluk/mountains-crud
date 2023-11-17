@@ -72,7 +72,12 @@ public class PeakDefaultController implements PeakController {
 
     @Override
     public void putPeak(UUID id, PutPeakRequest request) {
-        service.create(requestToPeak.apply(id, request));
+        service.findRange(request.getRange()).ifPresentOrElse(
+                range -> service.create(requestToPeak.apply(id, request)),
+                () -> {
+                    throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+                }
+        );
     }
 
     @Override

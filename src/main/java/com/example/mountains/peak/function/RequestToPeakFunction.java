@@ -17,6 +17,7 @@ public class RequestToPeakFunction implements BiFunction<UUID, PutPeakRequest, P
                 .id(id)
                 .name(request.getName())
                 .height(request.getHeight())
+                .range(Range.builder().id(request.getRange()).build())
                 .build();
         return newPeak;
     }

@@ -55,12 +55,6 @@ public class RangeDefaultController implements RangeController {
     }
 
     @Override
-    public GetRangeResponse getRange(String name) {
-        return service.find(name).map(rangeToResponse)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-    }
-
-    @Override
     public void putRange(UUID id, PutRangeRequest request) {
         service.create(requestToRange.apply(id, request));
     }

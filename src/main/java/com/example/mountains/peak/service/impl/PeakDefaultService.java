@@ -31,6 +31,9 @@ public class PeakDefaultService implements PeakService {
     }
 
     @Override
+    public Optional<Range> findRange(UUID rangeId) { return rangeRepository.findById(rangeId);}
+
+    @Override
     public Optional<Peak> find(UUID id, Range range) {
         return peakRepository.findByIdAndRange(id, range);
     }

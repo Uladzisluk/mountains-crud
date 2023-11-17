@@ -18,7 +18,7 @@ GET http://localhost:8080/api/ranges/9ddbffa6-7c2d-11ee-b962-0242ac120002/peaks
 
 GET http://localhost:8080/api/users/9ddbffa6-7c2d-11ee-b962-0242ac121111/peaks
 
-### Create new peak
+### Create new peak in range
 
 PUT http://localhost:8080/api/peaks/5064164a-7c2e-11ee-b962-0242ac121111
 Content-Type: application/json
