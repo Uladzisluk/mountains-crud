@@ -1,5 +1,6 @@
 package com.example.mountains.peak.controller.impl;
 
+import lombok.extern.java.Log;
 import com.example.mountains.peak.controller.api.PeakController;
 import com.example.mountains.peak.dto.GetPeakResponse;
 import com.example.mountains.peak.dto.GetPeaksResponse;
@@ -12,13 +13,18 @@ import com.example.mountains.peak.service.api.PeakService;
 import com.example.mountains.range.entity.Range;
 import com.example.mountains.range.service.api.RangeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.ResponseStatusException;
 
-import java.util.NoSuchElementException;
+import java.io.IOException;
+import java.util.logging.Level;
 import java.util.Optional;
 import java.util.UUID;
 
-@Controller
+@RestController
+@Log
 public class PeakDefaultController implements PeakController {
 
     private final PeakService service;
@@ -45,19 +51,23 @@ public class PeakDefaultController implements PeakController {
 
     @Override
     public GetPeakResponse getPeak(UUID id) {
-        return service.find(id).map(peakToResponse).orElseThrow(() -> new NoSuchElementException());
+        return service.find(id)
+                .map(peakToResponse)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @Override
     public GetPeaksResponse getRangePeaks(UUID rangeId) {
         return service.findAllByRange(rangeId)
                 .map(peaksToResponse)
-                .orElseThrow(NoSuchElementException::new);
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @Override
     public GetPeakResponse getRangePeak(UUID rangeId, UUID peakId) {
-        return service.findByRange(rangeId, peakId).map(peakToResponse).orElseThrow(() -> new NoSuchElementException());
+        return service.findByRange(rangeId, peakId)
+                .map(peakToResponse)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @Override
@@ -72,6 +82,12 @@ public class PeakDefaultController implements PeakController {
 
     @Override
     public void deletePeak(UUID id) {
-        service.delete(id);
+        service.find(id)
+                .ifPresentOrElse(
+                        peak -> service.delete(id),
+                        () ->{
+                            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+                        }
+                );
     }
 }

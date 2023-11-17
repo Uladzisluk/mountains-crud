@@ -1,0 +1,43 @@
+### Get all peaks
+
+GET http://localhost:8080/api/peaks
+
+### Get single peak
+
+GET http://localhost:8080/api/peaks/5064164a-7c2e-11ee-b962-0242ac120002
+
+### Get single peak, not existing
+
+GET http://localhost:8080/api/characters/5064164a-7c2e-11ee-b962-0242ac121111
+
+### Get range peaks
+
+GET http://localhost:8080/api/ranges/9ddbffa6-7c2d-11ee-b962-0242ac120002/peaks
+
+### Getr range peaks, not existing
+
+GET http://localhost:8080/api/users/9ddbffa6-7c2d-11ee-b962-0242ac121111/peaks
+
+### Create new peak
+
+PUT http://localhost:8080/api/peaks/5064164a-7c2e-11ee-b962-0242ac121111
+Content-Type: application/json
+Authorization: Basic a2V2aW46dXNlcnVzZXI=
+
+{
+  "name": "Everest",
+  "height": 8849,
+  "range": "9ddbffa6-7c2d-11ee-b962-0242ac120002"
+}
+
+### Get range peaks
+
+GET http://localhost:8080/api/ranges/9ddbffa6-7c2d-11ee-b962-0242ac120002/peaks
+
+### Delete peak.
+
+DELETE http://localhost:8080/api/peaks/5064164a-7c2e-11ee-b962-0242ac120002
+
+### Get range peaks
+
+GET http://localhost:8080/api/ranges/9ddbffa6-7c2d-11ee-b962-0242ac120002/peaks

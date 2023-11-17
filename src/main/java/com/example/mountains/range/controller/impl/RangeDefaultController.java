@@ -13,13 +13,18 @@ import com.example.mountains.range.function.RangesToResponseFunction;
 import com.example.mountains.range.function.RequestToRangeFunction;
 import com.example.mountains.range.service.api.RangeService;
 import com.example.mountains.range.service.impl.RangeDefaultService;
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
-import java.util.NoSuchElementException;
 import java.util.UUID;
 
-@Controller
+@RestController
+@Log
 public class RangeDefaultController implements RangeController {
 
     private final RangeService service;
@@ -45,12 +50,14 @@ public class RangeDefaultController implements RangeController {
 
     @Override
     public GetRangeResponse getRange(UUID id) {
-        return service.find(id).map(rangeToResponse).orElseThrow(NoSuchElementException::new);
+        return service.find(id).map(rangeToResponse)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @Override
     public GetRangeResponse getRange(String name) {
-        return service.find(name).map(rangeToResponse).orElseThrow(NoSuchElementException::new);
+        return service.find(name).map(rangeToResponse)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @Override
