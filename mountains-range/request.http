@@ -1,0 +1,19 @@
+### Get all ranges
+
+GET http://localhost:8080/api/ranges
+
+### Get single range
+
+GET http://localhost:8080/api/ranges/9ddbffa6-7c2d-11ee-b962-0242ac120002
+
+### Get single range, not existing
+
+GET http://localhost:8080/api/ranges/9ddbffa6-7c2d-11ee-b962-0242ac121111
+
+### Delete range
+
+DELETE http://localhost:8080/api/ranges/9ddbffa6-7c2d-11ee-b962-0242ac120002
+
+### Get all ranges
+
+GET http://localhost:8080/api/ranges
