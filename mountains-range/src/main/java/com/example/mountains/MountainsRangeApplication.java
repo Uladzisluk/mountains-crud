@@ -1,4 +1,4 @@
-package com.example.mountains.range;
+package com.example.mountains;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
