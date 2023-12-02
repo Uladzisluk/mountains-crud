@@ -16,7 +16,6 @@ public class RequestToRangeFunction implements BiFunction<UUID, PutRangeRequest,
                 .id(id)
                 .name(request.getName())
                 .length(request.getLength())
-                .peaks(new ArrayList<>())
                 .build();
     }
 }
