@@ -25,16 +25,6 @@ public class RangeDefaultService implements RangeService {
     }
 
     @Override
-    public Optional<Range> find(String name) {
-        return repository.findByName(name);
-    }
-
-    @Override
-    public List<Range> findAll(){
-        return repository.findAll();
-    }
-
-    @Override
     public void delete(UUID id) {
         repository.findById(id).ifPresent(repository::delete);
     }

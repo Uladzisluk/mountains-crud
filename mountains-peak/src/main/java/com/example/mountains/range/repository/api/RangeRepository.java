@@ -9,5 +9,4 @@ import java.util.UUID;
 
 @Repository
 public interface RangeRepository extends JpaRepository<Range, UUID> {
-    Optional<Range> findByName(String name);
 }
