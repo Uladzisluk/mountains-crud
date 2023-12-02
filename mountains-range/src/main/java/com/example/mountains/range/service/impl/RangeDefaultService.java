@@ -1,6 +1,7 @@
 package com.example.mountains.range.service.impl;
 
 import com.example.mountains.range.entity.Range;
+import com.example.mountains.range.event.repository.api.RangeEventRepository;
 import com.example.mountains.range.repository.api.RangeRepository;
 import com.example.mountains.range.service.api.RangeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,12 @@ public class RangeDefaultService implements RangeService {
 
     private final RangeRepository repository;
 
+    private final RangeEventRepository eventRepository;
+
     @Autowired
-    public RangeDefaultService(RangeRepository repository){
+    public RangeDefaultService(RangeRepository repository, RangeEventRepository eventRepository){
         this.repository = repository;
+        this.eventRepository = eventRepository;
     }
     @Override
     public Optional<Range> find(UUID id) {
@@ -37,6 +41,7 @@ public class RangeDefaultService implements RangeService {
     @Override
     public void delete(UUID id) {
         repository.findById(id).ifPresent(repository::delete);
+        eventRepository.delete(id);
     }
 
 
