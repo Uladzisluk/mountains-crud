@@ -8,7 +8,7 @@ GET http://localhost:8081/api/peaks/5064164a-7c2e-11ee-b962-0242ac120002
 
 ### Get single peak, not existing
 
-GET http://localhost:8081/api/characters/5064164a-7c2e-11ee-b962-0242ac121111
+GET http://localhost:8081/api/peaks/5064164a-7c2e-11ee-b962-0242ac121111
 
 ### Get range peaks
 
@@ -16,7 +16,7 @@ GET http://localhost:8081/api/ranges/9ddbffa6-7c2d-11ee-b962-0242ac120002/peaks
 
 ### Getr range peaks, not existing
 
-GET http://localhost:8081/api/users/9ddbffa6-7c2d-11ee-b962-0242ac121111/peaks
+GET http://localhost:8081/api/ranges/9ddbffa6-7c2d-11ee-b962-0242ac121111/peaks
 
 ### Create new peak in range
 
