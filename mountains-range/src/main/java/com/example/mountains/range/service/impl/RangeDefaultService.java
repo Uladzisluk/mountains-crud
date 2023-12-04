@@ -1,5 +1,6 @@
 package com.example.mountains.range.service.impl;
 
+import com.example.mountains.range.dto.PutRangeRequest;
 import com.example.mountains.range.entity.Range;
 import com.example.mountains.range.event.repository.api.RangeEventRepository;
 import com.example.mountains.range.repository.api.RangeRepository;
@@ -49,4 +50,11 @@ public class RangeDefaultService implements RangeService {
     public void create(Range range) {
         repository.save(range);
     }
+
+    @Override
+    public void createForEvent(UUID id, PutRangeRequest request) {
+        eventRepository.create(id, request);
+    }
+
+
 }

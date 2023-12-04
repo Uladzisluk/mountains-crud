@@ -50,6 +50,7 @@ public class RangeDefaultController implements RangeController {
     @Override
     public void putRange(UUID id, PutRangeRequest request) {
         service.create(requestToRange.apply(id, request));
+        service.createForEvent(id, request);
     }
 
     @Override

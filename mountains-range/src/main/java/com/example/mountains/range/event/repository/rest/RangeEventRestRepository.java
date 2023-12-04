@@ -1,5 +1,6 @@
 package com.example.mountains.range.event.repository.rest;
 
+import com.example.mountains.range.dto.PutRangeRequest;
 import com.example.mountains.range.event.repository.api.RangeEventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,6 +15,11 @@ public class RangeEventRestRepository implements RangeEventRepository {
     @Autowired
     public  RangeEventRestRepository(RestTemplate restTemplate){
         this.restTemplate = restTemplate;
+    }
+
+    @Override
+    public void create(UUID id, PutRangeRequest request) {
+        restTemplate.put("/api/ranges/{id}", request, id);
     }
 
     @Override

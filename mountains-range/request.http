@@ -17,3 +17,14 @@ DELETE http://localhost:8083/api/ranges/9ddbffa6-7c2d-11ee-b962-0242ac120002
 ### Get all ranges
 
 GET http://localhost:8083/api/ranges
+
+### Put range
+
+PUT http://localhost:8083/api/ranges/9ddbffa6-7c2d-11ee-b962-0242ac121234
+Content-Type: application/json
+Authorization: Basic a2V2aW46dXNlcnVzZXI=
+
+{
+  "name": "Pamir",
+  "length": 900
+}

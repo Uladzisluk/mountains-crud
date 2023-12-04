@@ -45,3 +45,7 @@ GET http://localhost:8081/api/ranges/9ddbffa6-7c2d-11ee-b962-0242ac120002/peaks
 ### Get single peak
 
 GET http://localhost:8081/api/peaks/5064191a-7c2e-11ee-b962-0242ac120002
+
+### Get all ranges
+
+GET http://localhost:8081/api/ranges
