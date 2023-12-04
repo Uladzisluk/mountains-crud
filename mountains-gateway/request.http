@@ -65,3 +65,30 @@ GET http://localhost:8084/api/ranges
 ### Get single peak
 
 GET http://localhost:8084/api/peaks/5064191a-7c2e-11ee-b962-0242ac120002
+
+### Put range
+
+PUT http://localhost:8084/api/ranges/9ddbffa6-7c2d-11ee-b962-0242ac121234
+Content-Type: application/json
+Authorization: Basic a2V2aW46dXNlcnVzZXI=
+
+{
+  "name": "Pamir",
+  "length": 900
+}
+
+### Create new peak in range
+
+PUT http://localhost:8084/api/peaks/5064164a-7c2e-11ee-b962-0242ac121111
+Content-Type: application/json
+Authorization: Basic a2V2aW46dXNlcnVzZXI=
+
+{
+  "name": "Everest",
+  "height": 8849,
+  "range": "9ddbffa6-7c2d-11ee-b962-0242ac121234"
+}
+
+### Get range peaks
+
+GET http://localhost:8084/api/ranges/9ddbffa6-7c2d-11ee-b962-0242ac121234/peaks
