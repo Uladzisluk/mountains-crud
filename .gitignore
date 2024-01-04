@@ -35,3 +35,6 @@ build/
 ### Node ###
 mountains-ng/node_modules
 mountains-js/node_modules
+
+### Angular ###
+mountains-ng/.angular
