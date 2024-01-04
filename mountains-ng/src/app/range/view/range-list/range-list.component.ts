@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Ranges} from "../../model/ranges";
 import {Range} from "../../model/range";
+import {RangeService} from "../../service/range.service";
 
 /**
  * Navigable view with list of all ranges.
@@ -12,23 +13,17 @@ import {Range} from "../../model/range";
 })
 export class RangeListComponent implements OnInit{
   /**
+   * @param service ranges service
+   */
+  constructor(private service: RangeService) {
+  }
+
+  /**
    * Available ranges.
    */
-
   ranges: Ranges | undefined;
   ngOnInit(): void {
-    this.ranges = {
-      ranges :[
-        {
-          name: 'Everest',
-          id: crypto.randomUUID()
-        },
-        {
-          name: 'K2',
-          id: crypto.randomUUID()
-        }
-      ]
-    }
+    this.service.getRanges().subscribe(ranges => this.ranges = ranges);
   }
 
   /**
@@ -37,7 +32,7 @@ export class RangeListComponent implements OnInit{
    * @param range range to be removed
    */
   onDelete(range: Range): void{
-    this.ranges?.ranges.splice(this.ranges?.ranges.indexOf(range), 1);
+    this.service.deleteRange(range.id).subscribe(() => this.ngOnInit());
   }
 
 }

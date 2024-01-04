@@ -8,6 +8,8 @@ import { HeaderComponent } from './component/header/header.component';
 import { MainComponent } from './component/main/main.component';
 import { NavComponent } from './component/nav/nav.component';
 import { RangeListComponent } from './range/view/range-list/range-list.component';
+import {HttpClientModule} from "@angular/common/http";
+import {RangeService} from "./range/service/range.service";
 
 @NgModule({
   declarations: [
@@ -20,9 +22,10 @@ import { RangeListComponent } from './range/view/range-list/range-list.component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [RangeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
