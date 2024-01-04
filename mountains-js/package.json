@@ -1,0 +1,15 @@
+{
+  "name": "mountains-js",
+  "version": "1.0.0",
+  "description": "Simple CRUD JavaScript based UI.",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -p 8080 -c-1 -P http://localhost:8084 src"
+  },
+  "author": "Uladzislau Lukashevich",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "dependencies": {
+  }
+}
