@@ -11,6 +11,7 @@ import { RangeListComponent } from './range/view/range-list/range-list.component
 import {HttpClientModule} from "@angular/common/http";
 import {RangeService} from "./range/service/range.service";
 import { PeakListComponent } from './peak/view/peak-list/peak-list.component';
+import {PeakService} from "./peak/service/peak.service";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { PeakListComponent } from './peak/view/peak-list/peak-list.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [RangeService],
+  providers: [RangeService, PeakService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

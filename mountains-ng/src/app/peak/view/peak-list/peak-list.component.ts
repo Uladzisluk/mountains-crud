@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {PeakService} from "../../service/peak.service";
+import {Peaks} from "../../model/peaks";
+import {Peak} from "../../model/peak";
 
 @Component({
   selector: 'app-peak-list',
