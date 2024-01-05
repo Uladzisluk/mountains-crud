@@ -10,6 +10,7 @@ import { NavComponent } from './component/nav/nav.component';
 import { RangeListComponent } from './range/view/range-list/range-list.component';
 import {HttpClientModule} from "@angular/common/http";
 import {RangeService} from "./range/service/range.service";
+import { PeakListComponent } from './peak/view/peak-list/peak-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {RangeService} from "./range/service/range.service";
     HeaderComponent,
     MainComponent,
     NavComponent,
-    RangeListComponent
+    RangeListComponent,
+    PeakListComponent
   ],
   imports: [
     BrowserModule,
