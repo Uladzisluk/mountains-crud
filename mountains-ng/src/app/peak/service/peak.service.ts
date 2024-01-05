@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Peaks} from "../model/peaks";
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {PeakDetails} from "../model/peak-details";
 
 @Injectable()
 export class PeakService {
@@ -22,10 +23,21 @@ export class PeakService {
   }
 
   /**
+   * Fetches single peaks.
+   *
+   * @param uuid peak's id
+   * @return single peaks
+   */
+  getPeak(uuid: string): Observable<PeakDetails> {
+    return this.http.get<PeakDetails>('/api/peaks/' + uuid);
+  }
+
+  /**
    * Removes single peak.
    *
    * @param uuid peak's id
    */
+
   deletePeak(uuid: string): Observable<any> {
     return this.http.delete('/api/peaks/' + uuid);
   }

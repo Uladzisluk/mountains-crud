@@ -1,7 +1,7 @@
 /**
  * Represents single peak in list.
  */
-export interface Peak {
+export interface PeakDetails{
   /**
    * Unique id identifying peak.
    */
@@ -12,4 +12,8 @@ export interface Peak {
    */
   name: string;
 
+  /**
+   * Height of the peak.
+   */
+  height: number;
 }

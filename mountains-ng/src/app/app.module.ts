@@ -12,6 +12,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {RangeService} from "./range/service/range.service";
 import { PeakListComponent } from './peak/view/peak-list/peak-list.component';
 import {PeakService} from "./peak/service/peak.service";
+import { PeakViewComponent } from './peak/view/peak-view/peak-view.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {PeakService} from "./peak/service/peak.service";
     MainComponent,
     NavComponent,
     RangeListComponent,
-    PeakListComponent
+    PeakListComponent,
+    PeakViewComponent
   ],
   imports: [
     BrowserModule,
