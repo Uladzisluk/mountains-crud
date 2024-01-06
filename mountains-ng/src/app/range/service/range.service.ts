@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Ranges} from "../model/ranges";
+import {RangeForm} from "../model/range-form";
 
 @Injectable()
 export class RangeService {
@@ -26,5 +27,15 @@ export class RangeService {
    */
   deleteRange(uuid: string): Observable<any> {
     return this.http.delete('/api/ranges/' + uuid);
+  }
+
+  /**
+   * Updates single range.
+   *
+   * @param uuid range's id
+   * @param request request body
+   */
+  putRange(uuid: string, request: RangeForm): Observable<any>{
+    return this.http.put('api/ranges/' + uuid, request);
   }
 }

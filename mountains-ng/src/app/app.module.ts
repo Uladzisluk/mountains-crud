@@ -15,6 +15,7 @@ import {PeakService} from "./peak/service/peak.service";
 import { PeakViewComponent } from './peak/view/peak-view/peak-view.component';
 import { PeakEditComponent } from './peak/view/peak-edit/peak-edit.component';
 import {FormsModule} from "@angular/forms";
+import { RangeCreateComponent } from './range/view/range-create/range-create.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {FormsModule} from "@angular/forms";
     RangeListComponent,
     PeakListComponent,
     PeakViewComponent,
-    PeakEditComponent
+    PeakEditComponent,
+    RangeCreateComponent
   ],
     imports: [
         BrowserModule,

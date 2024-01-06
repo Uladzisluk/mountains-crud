@@ -4,11 +4,16 @@ import {RangeListComponent} from "./range/view/range-list/range-list.component";
 import {PeakListComponent} from "./peak/view/peak-list/peak-list.component";
 import {PeakViewComponent} from "./peak/view/peak-view/peak-view.component";
 import {PeakEditComponent} from "./peak/view/peak-edit/peak-edit.component";
+import {RangeCreateComponent} from "./range/view/range-create/range-create.component";
 
 const routes: Routes = [
   {
     component: RangeListComponent,
     path: "ranges"
+  },
+  {
+    component: RangeCreateComponent,
+    path: "ranges/create"
   },
   {
     component: PeakListComponent,
