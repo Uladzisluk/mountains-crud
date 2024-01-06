@@ -5,12 +5,16 @@
     <thead>
     <tr>
       <th>Name</th>
+      <th>Edit</th>
       <th>Delete</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let range of ranges.ranges">
       <td>{{range.name}}</td>
+      <td>
+        <a [routerLink]="['/ranges', range.id, 'edit']">Edit</a>
+      </td>
       <td>
         <button (click)="onDelete(range)">Delete</button>
       </td>

@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Ranges} from "../model/ranges";
 import {RangeForm} from "../model/range-form";
+import {RangeDetails} from "../model/range-details";
 
 @Injectable()
 export class RangeService {
@@ -18,6 +19,16 @@ export class RangeService {
    */
   getRanges(): Observable<Ranges> {
     return this.http.get<Ranges>('/api/ranges');
+  }
+
+  /**
+   * Fetches single range.
+   *
+   * @param uuid range's id
+   * @return single range
+   */
+  getRange(uuid: string): Observable<RangeDetails> {
+    return this.http.get<RangeDetails>('/api/ranges/' + uuid);
   }
 
   /**
