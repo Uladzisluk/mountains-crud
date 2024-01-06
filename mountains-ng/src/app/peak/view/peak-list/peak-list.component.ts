@@ -27,7 +27,7 @@ export class PeakListComponent {
   /**
    * Deletes selected peak.
    *
-   * @param range peak to be removed
+   * @param peak peak to be removed
    */
   onDelete(peak: Peak): void {
     this.service.deletePeak(peak.id).subscribe(() => this.ngOnInit());

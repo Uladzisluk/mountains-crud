@@ -5,6 +5,7 @@
     <thead>
     <tr>
       <th>Name</th>
+      <th>View</th>
       <th>Edit</th>
       <th>Delete</th>
     </tr>
@@ -12,6 +13,9 @@
     <tbody>
     <tr *ngFor="let range of ranges.ranges">
       <td>{{range.name}}</td>
+      <td>
+        <a [routerLink]="['/ranges', range.id]">View</a>
+      </td>
       <td>
         <a [routerLink]="['/ranges', range.id, 'edit']">Edit</a>
       </td>

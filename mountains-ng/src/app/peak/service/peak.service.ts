@@ -24,6 +24,15 @@ export class PeakService {
   }
 
   /**
+   * Fetches all peaks from range.
+   * @param uuid range's id
+   *  @return list of peaks
+   */
+  getRangePeaks(uuid: string): Observable<Peaks>{
+    return this.http.get<Peaks>('/api/ranges/'+ uuid + '/peaks');
+  }
+
+  /**
    * Fetches single peaks.
    *
    * @param uuid peak's id

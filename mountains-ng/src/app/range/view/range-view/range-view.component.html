@@ -1,0 +1,36 @@
+<article *ngIf="range">
+  <header><h2>{{range.name}}</h2></header>
+
+  <div>
+    <span>Length: {{range.length}} m</span>
+  </div>
+
+  <header><h3>{{range.name}} peaks</h3></header>
+
+  <table *ngIf="peaks">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>View</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let peak of peaks.peaks">
+      <td>{{peak.name}}</td>
+      <td>
+        <a [routerLink]="['/peaks', peak.id]">View</a>
+      </td>
+      <td>
+        <a [routerLink]="['/peaks', peak.id, 'edit']">Edit</a>
+      </td>
+      <td>
+        <button (click)="onPeakDelete(peak)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <br/>
+</article>

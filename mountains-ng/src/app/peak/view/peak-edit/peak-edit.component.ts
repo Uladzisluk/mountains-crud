@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {PeakForm} from "../../model/peak-form";
 import {PeakService} from "../../service/peak.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-peak-edit',
@@ -28,11 +29,13 @@ export class PeakEditComponent implements OnInit{
    * @param peakService peak service
    * @param route activated route
    * @param router router
+   * @param location location
    */
   constructor(
     private peakService: PeakService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {
   }
 
@@ -57,7 +60,7 @@ export class PeakEditComponent implements OnInit{
    */
   onSubmit(): void {
     this.peakService.putPeak(this.uuid!, this.peak!)
-      .subscribe(() => this.router.navigate(['/peaks']));
+      .subscribe(() => this.location.back());
   }
 
 }
