@@ -6,6 +6,7 @@
     <tr>
       <th>Name</th>
       <th>View</th>
+      <th>Edit</th>
       <th>Delete</th>
     </tr>
     </thead>
@@ -14,6 +15,9 @@
       <td>{{peak.name}}</td>
       <td>
         <a [routerLink]="['/peaks', peak.id]">View</a>
+      </td>
+      <td>
+        <a [routerLink]="['/peaks', peak.id, 'edit']">Edit</a>
       </td>
       <td>
         <button (click)="onDelete(peak)">Delete</button>

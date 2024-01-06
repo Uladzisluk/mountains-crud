@@ -12,4 +12,5 @@ public class GetPeakResponse{
     String name;
     Double height;
     String range;
+    UUID rangeUUID;
 }

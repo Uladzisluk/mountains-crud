@@ -13,6 +13,8 @@ import {RangeService} from "./range/service/range.service";
 import { PeakListComponent } from './peak/view/peak-list/peak-list.component';
 import {PeakService} from "./peak/service/peak.service";
 import { PeakViewComponent } from './peak/view/peak-view/peak-view.component';
+import { PeakEditComponent } from './peak/view/peak-edit/peak-edit.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,13 +25,15 @@ import { PeakViewComponent } from './peak/view/peak-view/peak-view.component';
     NavComponent,
     RangeListComponent,
     PeakListComponent,
-    PeakViewComponent
+    PeakViewComponent,
+    PeakEditComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule
+    ],
   providers: [RangeService, PeakService],
   bootstrap: [AppComponent]
 })

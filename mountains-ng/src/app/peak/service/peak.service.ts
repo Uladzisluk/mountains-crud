@@ -3,6 +3,7 @@ import {Peaks} from "../model/peaks";
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {PeakDetails} from "../model/peak-details";
+import {PeakForm} from "../model/peak-form";
 
 @Injectable()
 export class PeakService {
@@ -40,5 +41,15 @@ export class PeakService {
 
   deletePeak(uuid: string): Observable<any> {
     return this.http.delete('/api/peaks/' + uuid);
+  }
+
+  /**
+   * Updates single peak.
+   *
+   * @param uuid peak's id
+   * @param request request body
+   */
+  putPeak(uuid: string, request: PeakForm): Observable<any> {
+    return this.http.put('/api/peaks/' + uuid, request);
   }
 }

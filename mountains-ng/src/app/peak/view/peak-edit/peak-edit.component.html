@@ -1,0 +1,33 @@
+<article *ngIf="peak">
+  <header><h2>Edit peak</h2></header>
+
+  <form #form="ngForm" (ngSubmit)="onSubmit()">
+    <div>
+      <div>
+        <div>
+          <label for="name">Name:</label>
+          <input id="name" name="name" [(ngModel)]="peak.name"/>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <div>
+          <label for="height">Height:</label>
+          <input id="height" name="height" [(ngModel)]="peak.height"/>
+        </div>
+      </div>
+    </div>
+
+
+    <div>
+      <div>
+        <button type="submit">Update</button>
+      </div>
+      <div>
+        <button type="button" (click)="form.resetForm(original)">Reset</button>
+      </div>
+    </div>
+  </form>
+</article>

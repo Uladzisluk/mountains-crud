@@ -16,4 +16,14 @@ export interface PeakDetails{
    * Height of the peak.
    */
   height: number;
+
+  /**
+   * Name of peak's range.
+   */
+  range: string;
+
+  /**
+   * UUID of peak's range.
+   */
+  rangeUUID: string;
 }
