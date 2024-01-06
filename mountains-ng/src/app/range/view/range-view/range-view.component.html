@@ -20,7 +20,7 @@
     <tr *ngFor="let peak of peaks.peaks">
       <td>{{peak.name}}</td>
       <td>
-        <a [routerLink]="['/peaks', peak.id]">View</a>
+        <a [routerLink]="['/ranges', range.id, 'peaks', peak.id]">View</a>
       </td>
       <td>
         <a [routerLink]="['/ranges', range.id, 'peaks', peak.id, 'edit']">Edit</a>
