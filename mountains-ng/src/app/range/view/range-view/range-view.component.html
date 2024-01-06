@@ -23,7 +23,7 @@
         <a [routerLink]="['/peaks', peak.id]">View</a>
       </td>
       <td>
-        <a [routerLink]="['/peaks', peak.id, 'edit']">Edit</a>
+        <a [routerLink]="['/ranges', range.id, 'peaks', peak.id, 'edit']">Edit</a>
       </td>
       <td>
         <button (click)="onPeakDelete(peak)">Delete</button>
