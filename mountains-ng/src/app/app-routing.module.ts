@@ -7,6 +7,7 @@ import {PeakEditComponent} from "./peak/view/peak-edit/peak-edit.component";
 import {RangeCreateComponent} from "./range/view/range-create/range-create.component";
 import {RangeEditComponent} from "./range/view/range-edit/range-edit.component";
 import {RangeViewComponent} from "./range/view/range-view/range-view.component";
+import {PeakCreateComponent} from "./peak/view/peak-create/peak-create.component";
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     component: RangeEditComponent,
     path: "ranges/:uuid/edit"
+  },
+  {
+    component: PeakCreateComponent,
+    path: "ranges/:uuid/create"
   },
   {
     component: PeakListComponent,

@@ -29,6 +29,11 @@
         <button (click)="onPeakDelete(peak)">Delete</button>
       </td>
     </tr>
+    <tr>
+      <td>
+        <a  [routerLink]="['/ranges', range.id, 'create']">Create</a>
+      </td>
+    </tr>
     </tbody>
   </table>
 

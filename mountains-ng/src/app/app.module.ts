@@ -18,6 +18,7 @@ import {FormsModule} from "@angular/forms";
 import { RangeCreateComponent } from './range/view/range-create/range-create.component';
 import { RangeEditComponent } from './range/view/range-edit/range-edit.component';
 import { RangeViewComponent } from './range/view/range-view/range-view.component';
+import { PeakCreateComponent } from './peak/view/peak-create/peak-create.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { RangeViewComponent } from './range/view/range-view/range-view.component
     PeakEditComponent,
     RangeCreateComponent,
     RangeEditComponent,
-    RangeViewComponent
+    RangeViewComponent,
+    PeakCreateComponent
   ],
     imports: [
         BrowserModule,

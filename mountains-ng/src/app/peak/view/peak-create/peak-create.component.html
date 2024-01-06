@@ -1,0 +1,39 @@
+<article>
+  <header><h2>Create peak</h2></header>
+
+  <form class="container" #form="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="uuid">UUID:</label>
+          <input id="uuid" name="uuid" [(ngModel)]="uuid">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="name">Name:</label>
+          <input id="name" name="name" [(ngModel)]="peak.name"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="height">Height:</label>
+          <input id="height" name="height" [(ngModel)]="peak.height"/>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-2 p-2">
+        <button type="submit">Create</button>
+      </div>
+    </div>
+  </form>
+</article>
