@@ -20,6 +20,20 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="col-4 p-2">
+        <fieldset *ngIf="ranges">
+          <legend>Range:</legend>
+          <div *ngFor="let range of ranges.ranges">
+            <label>
+              <input type="radio" name="range" [(ngModel)]="peak.range" [value]="range.id"/>
+              {{range.name}}
+            </label>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
 
     <div class="row">
       <div class="col-2 p-2">

@@ -39,8 +39,16 @@ const routes: Routes = [
     path: "ranges/:rangeUuid/peaks/:uuid"
   },
   {
+    component: PeakViewComponent,
+    path: "peaks/:uuid"
+  },
+  {
     component: PeakEditComponent,
     path: "ranges/:rangeUuid/peaks/:uuid/edit"
+  },
+  {
+    component: PeakEditComponent,
+    path: "peaks/:uuid/edit"
   }
 ];
 

@@ -3,6 +3,8 @@ import {PeakForm} from "../../model/peak-form";
 import {PeakService} from "../../service/peak.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Location} from "@angular/common";
+import {Ranges} from "../../../range/model/ranges";
+import {RangeService} from "../../../range/service/range.service";
 
 @Component({
   selector: 'app-peak-edit',
@@ -25,14 +27,18 @@ export class PeakEditComponent implements OnInit{
    */
   original: PeakForm | undefined;
 
+  ranges: Ranges | undefined;
+
   /**
    * @param peakService peak service
+   * @param rangeService range service
    * @param route activated route
    * @param router router
    * @param location location
    */
   constructor(
     private peakService: PeakService,
+    private rangeService: RangeService,
     private route: ActivatedRoute,
     private router: Router,
     private location: Location
@@ -40,6 +46,7 @@ export class PeakEditComponent implements OnInit{
   }
 
   ngOnInit() {
+    this.rangeService.getRanges().subscribe(ranges => this.ranges = ranges);
 
     this.route.params.subscribe(params => {
       this.peakService.getPeak(params['uuid'])
