@@ -10,11 +10,12 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>mountains-range</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>mountains-range</name>
     <description>mountains-range</description>
     <properties>
         <java.version>17</java.version>
+        <start-class>com.example.mountains.MountainsRangeApplication</start-class>
     </properties>
     <dependencies>
         <dependency>
@@ -82,6 +83,22 @@
                         </exclude>
                     </excludes>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+
+                    <mainClass>com.example.mountains.MountainsRangeApplication</mainClass>
+                    <layout>JAR</layout>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
