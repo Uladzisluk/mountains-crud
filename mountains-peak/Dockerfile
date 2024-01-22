@@ -8,7 +8,6 @@ LABEL org.opencontainers.image.licenses="MIT"
 
 LABEL build_version=""
 LABEL maintainer=""
-git
 ENV VERSION="1.0.0-SNAPSHOT"
 
 ENV SERVER_PORT=8080
